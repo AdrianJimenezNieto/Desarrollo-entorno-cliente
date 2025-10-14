@@ -21,8 +21,11 @@ botonMenos.addEventListener('click', () => {
 })
 
 botonReset.addEventListener('click', () => {
-  // Reseteo el contador a 0 cuando se pulsa el boton de reset
-  contador = 0;
-  // Actualizo el texto del span el el DOM
-  numero.innerText = contador;
+  // Pregunto si de verdad quiere resetear el contador
+  if (confirm('¿Seguro que quieres resetear el contador?')) {
+    // Reseteo el contador a 0 cuando se pulsa el boton de reset
+    contador = 0;
+    // Actualizo el texto del span el el DOM
+    numero.innerText = contador;
+  }
 })
