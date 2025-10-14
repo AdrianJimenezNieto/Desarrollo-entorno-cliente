@@ -1,0 +1,14 @@
+# Ignore Word documents
+*.doc
+*.docx
+
+# Ignore PDF files
+*.pdf
+
+# Ignore compressed files
+*.zip
+*.rar
+*.7z
+*.tar
+*.gz
+*.bz2
