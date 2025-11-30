@@ -1,0 +1,10 @@
+<!-- Barra de búsqueda -->
+    <div class="search-bar" id="search-bar">
+      <input type="text" class="product-name" id="product-name"/>
+      <div class="price-selector">
+        <input type="text" class="min-price" id="min-price"/>
+        <input type="text" class="max-price" id="max-price"/>
+      </div>
+      <input type="text" class="category" id="category"/>
+      <button>Buscar</button>
+    </div>
