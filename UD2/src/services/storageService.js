@@ -1,6 +1,6 @@
 import { showError, showMessage } from "../utils/ui.js";
 
-// ------------------------------- CARRITO -------------------------------------
+// ------------------------------- SERVICIO CARRITO ----------------------------
 // Defino la variable de carrito
 // obtengo los datos o del localStorage o creo el carrito vacío
 let cart;
@@ -36,6 +36,37 @@ export const saveProduct = (product) => {
   // Notificacion en el DOM y traza por la consola
   showMessage(`Producto ${product.name} añadido correctamente al carrito.`);
   console.log(`Producto: ${JSON.stringify(product)} añadido correctamente al carrito.`);
+};
+
+// Devolver Carrito
+export const getCart = () => {
+  // Devolvemos el carrito
+  return [...cart];
+}
+
+// Borrar un item del carrito
+export const removeFromCart = (index) => {
+  // Elimino el elemento del carrito
+  // .splice(posicion, cuántos borrar)
+  cart.splice(index, 1);
+
+  // Actualizamos el localStorage
+  localStorage.setItem('cart', JSON.stringify(cart));
+  // Lo mostramos por pantalla y traza en la consola
+  console.log("Artículo eliminado del carrito. Carrito actualizado.");
+  showMessage("Producto eliminado del carrito.")
+}
+
+// Helper para calcular el total de cada artículo
+export const getCartTotal = () => {
+  // usamos reduce para sumar arrays
+  return cart.reduce((total, product) => total + (product.price * product.quantity), 0);
+};
+
+// Función para limpiar el carrito
+export const clearCart = () => {
+  cart = []; // Array vacío
+  localStorage.setItem('cart', JSON.stringify(cart)); // Persistencia en localStorage
 };
 
 // --------------------------- PROCESAMIENTO PRODUCTOS -------------------------

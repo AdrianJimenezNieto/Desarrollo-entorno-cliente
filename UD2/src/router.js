@@ -1,6 +1,8 @@
 import { renderCustomProductPage } from "./features/customProducts.js";
+import { renderOurProducts } from "./features/ourProducts.js";
+import { renderShoppingCart } from "./features/shoppingCart.js";
 
-// -------------------------------- RENDERIZADO --------------------------------
+// -------------------------------- RUTAS --------------------------------------
 
 export const pages = {
   // PAGINA HOME
@@ -10,11 +12,11 @@ export const pages = {
   `, // Retorna el string
 
   // PAGINA CUSTOM PRODUCTS
-  customProducts: renderCustomProductPage,
+  customProducts: renderCustomProductPage, // Render de productos personalizados
 
   // PAGINA PRODUCTOS PREDETERMINADOS
-  ourProducts: () => `<p>Productos predeterminados</p>`,
+  ourProducts: renderOurProducts, // Render de nuestros productos
 
   // PAGINA DEL CARRITO
-  cart: () => `<p>Pagina del carrito</p>`
+  shoppingCart: renderShoppingCart // Render del carrito
 };

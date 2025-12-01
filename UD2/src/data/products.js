@@ -1,4 +1,5 @@
-[
+// ---------------------------- DATOS DE NUESTROS PRODUCTOS --------------------
+export const data = [
     {
         "id": 1,
         "title": "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops",

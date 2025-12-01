@@ -1,6 +1,6 @@
 import { createElement } from "../utils/dom.js";
 import { showError } from "../utils/ui.js";
-import { saveProduct } from "../services/storage.js";
+import { saveProduct } from "../services/storageService.js";
 
 // --------------------- AÑADIR PRODUCTOS PERSONALIZADO ------------------------
 

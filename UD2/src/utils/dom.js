@@ -1,3 +1,4 @@
+// ------------------------------- HELPER CREACION DOM -------------------------
 // Helper para crear elementos del DOM
 export const createElement = (tag, { classes= [], text = '', id = ''} = {}) => {
   // Esta función sirve para crear elementos del DOM reciviendo por parámetros

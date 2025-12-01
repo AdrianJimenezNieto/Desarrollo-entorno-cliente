@@ -1,5 +1,6 @@
 import { pages } from "./router.js";
 
+// ---------------------------- MAIN DE LA WEB ---------------------------------
 const mainContent = document.getElementById("app-content");
 const links = document.querySelectorAll(".nav-link");
 
