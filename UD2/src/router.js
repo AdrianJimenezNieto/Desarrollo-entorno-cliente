@@ -1,15 +1,13 @@
 import { renderCustomProductPage } from "./features/customProducts.js";
 import { renderOurProducts } from "./features/ourProducts.js";
 import { renderShoppingCart } from "./features/shoppingCart.js";
+import { renderHomePage } from "./features/homePage.js";
 
 // -------------------------------- RUTAS --------------------------------------
 
 export const pages = {
   // PAGINA HOME
-  home: () => `
-    <h1>Bienvenido a FakeStore</h1>
-    <p>Puedes decirnos qué productos quieres o elegir uno de nuestros propios productos</p>
-  `, // Retorna el string
+  home: renderHomePage, // Retorna el string
 
   // PAGINA CUSTOM PRODUCTS
   customProducts: renderCustomProductPage, // Render de productos personalizados

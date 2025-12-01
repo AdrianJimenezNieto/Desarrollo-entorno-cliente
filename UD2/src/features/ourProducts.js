@@ -76,7 +76,7 @@ const pintarProductos = async (container, data) => {
     });
 
   } catch (error) {
-    console.log(error.message);
+    console.error(error.message);
     // Mostramos el error en el DOM
     showError('Error cargando los productos. Inténtalo más tarde.');
     container.innerHTML = '<p>No se pudo cargar el catálogo.</p>'; // HTML predefinido cuando no se puedan cargar productos

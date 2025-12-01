@@ -97,11 +97,15 @@ const saveCustomProduct = (container) => {
     const nameInput = container.querySelector('.input-name');
     const priceInput = container.querySelector('.input-price');
     const quantityInput = container.querySelector('.input-qty');
-  
-    // Procesamos los datos
-    const product = processProduct(nameInput.value, parseFloat(priceInput.value), parseFloat(quantityInput.value));
+    
+    const product = {
+      name: nameInput.value,
+      price: parseFloat(priceInput.value), // casting del dato
+      quantity: parseFloat(quantityInput.value) // casting del dato
+    }
   
     // Persistimos en el localStorage
+    // La propia función de guardado se ocupa de la validación
     saveProduct(product);
   
     // Limpiamos los input
@@ -139,7 +143,8 @@ export const renderCustomProductPage = () => {
     });
 
     const promptContainer = createElement('div', { id: 'prompt-products'});
-    const manualContainer = createElement('div', { classes: ['add-one-product']})
+    const separation = createElement('div', {id: 'separation'});
+    const manualContainer = createElement('div', { classes: ['add-one-product']});
 
     // Inicializamos el botón de prompt
     renderPromptButton(promptContainer);
@@ -161,6 +166,7 @@ export const renderCustomProductPage = () => {
 
     // Metemos todo en el wrapper
     wrapper.appendChild(promptContainer);
+    wrapper.appendChild(separation);
     wrapper.appendChild(manualContainer);
 
     return wrapper; // Devolvemos el wrapper

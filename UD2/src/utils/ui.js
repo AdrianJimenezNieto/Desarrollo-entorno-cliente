@@ -13,11 +13,13 @@ export const showError = (message) => {
   if (errorTimer) clearTimeout(errorTimer);
 
   // Renderizamos el texto y lo mostramos
-  // TODO: formatear el texto del mensaje a un parrafo
   errorBox.innerText = message;
+  errorBox.classList.add('active');
 
   // Iniciamos la cuenta regresiva de 5 segundos (tiempo del error en pantalla)
   errorTimer = setTimeout(() => {
+    // Quitamos la clase active
+    errorBox.classList.remove('active');
     // Limpiamos la caja de errores
     errorBox.innerText = '';
     errorTimer = null; // Limpiamos la variable del contador
@@ -25,8 +27,6 @@ export const showError = (message) => {
 }
 
 // --------------------------- MANEJO MENSAJES ---------------------------------
-// Timer para el mensaje
-let messageTimer = null;
 
 // Función para mostrar el mensaje en el DOM
 export const showMessage = (message) => {
@@ -35,18 +35,13 @@ export const showMessage = (message) => {
   if(!messageBox) return; // Salimos si no se ha creado la caja
 
   // Generamos un nuevo div dentro de la caja
-  const notification = document.createElement('div');
-  // TODO: añadir las clases para hacerlo visible
-  notification.innerText = message;
-
-  // Inyectamos el div que acabamos de crear en la caja de notificaciones
-  messageBox.appendChild(notification);
+  messageBox.innerText = message;
+  messageBox.classList.add('active'); // Clase de activacion
 
   // Destrucción del mensaje de notificación
   setTimeout(() => {
-    // TODO: animación de desvanecimiento
-    // Esperar a que termine la animación y borrar el elemento del DOM
-    // mirar el evento transitioned
-    notification.remove();
+    messageBox.classList.remove('active');
+    // Limpiamos la caja de notificaciones
+    messageBox.innerText = '';
   }, 5000);
 };

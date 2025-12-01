@@ -36,5 +36,11 @@ links.forEach((link) => {
   });
 });
 
+// Añado el evento de llevar a home al titulo del nav
+document.getElementById('header-title').addEventListener('click', (e) =>{
+  e.preventDefault();
+  loadPage("home");
+});
+
 // Cargamos la página por defecto al cargar la web
 loadPage("home");
