@@ -1,0 +1,443 @@
+/*
+========================================================================================================================
+======================================================= CONFIGURACIÓN GENERAL ==========================================
+========================================================================================================================
+*/
+
+/* CSS reset */
+*, *::after, *::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Configuración de paleta de colores y variables CSS */
+:root {
+  /* Base */
+  --bg-body: #f8f9fa;
+  --bg-card: #ffffff;
+
+  /* Tipografía */
+  --text-main: #2d3436;
+  --text-light: #636e72;
+
+  /* Colores de títulos y bordes */
+  --primary: #2d3436;
+  --accent: #7fab98;
+  --accent-hover: #5d8574;
+
+  /* Colores de estados */
+  --danger: #e57373;
+  --sucess: #81c784;
+
+  /* UI */
+  --radius: 12px; /* Para los bordes redondeados */
+  --shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Sombra sutil */
+}
+
+/* Estilos generales de layout */
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.6; /* Interlineado */
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1; /* Truco para que el footer esté abajo en la web*/
+}
+
+/*
+========================================================================================================================
+======================================================= HEADER =========================================================
+========================================================================================================================
+*/
+
+#logo {
+  cursor: pointer;
+}
+
+nav {
+  background-color: var(--primary);
+  padding: 1rem 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: white;
+  box-shadow: var(--shadow);
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.7);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.1s ease-out;
+  cursor: pointer;
+}
+
+.nav-link:hover {
+  transform: translateY(-3px);
+}
+
+.nav-link:hover, .nav-link.active {
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+}
+
+/*
+========================================================================================================================
+======================================================= LAYOUT =========================================================
+========================================================================================================================
+*/
+.page-section {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 1rem auto;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+/* Animación para la transicion entre pestañas */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+.hidden { display: none !important; }
+
+#booking form { 
+  background: var(--bg-card);
+  padding: 2rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  max-width: 500px;
+  margin: 2rem auto;
+}
+
+h2 {
+  text-align: center;
+  color: var(--primary);
+  margin-bottom: 2rem;
+}
+
+/*
+========================================================================================================================
+======================================================= HOME PAGE ======================================================
+========================================================================================================================
+*/
+
+#home {
+  min-height: 85dvh;
+  width: 100%;
+
+  background-image: url('https://images.unsplash.com/photo-1498503182468-3b51cbb6cb24?q=80&w=2070&auto=format&fit=crop');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+  border-radius: var(--radius);
+
+  position: relative;
+}
+
+.hero-content {
+  background-color: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(5px);
+
+  padding: 3rem 4rem;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+
+  text-align: center;
+  max-width: 600px;
+  width: 100%;
+
+  animation: slideUpFade 0.8s ease-out;
+}
+
+.hero-content h1 {
+  font-size: 2.5rem;
+  color: var(--primary);
+  margin-bottom: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -1px;
+}
+
+.hero-content p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+  font-weight: 400;
+}
+
+/*
+========================================================================================================================
+======================================================= CALENDAR PAGE ==================================================
+========================================================================================================================
+*/
+
+.calendar-view {
+  background: var(--bg-card);
+  padding: 20px;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.calendar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.next, .prev {
+  font-size: 3rem;
+  background: none;
+  transition: background-color 0.2s, transform 0.4s;
+  border-radius: 4px;
+  padding: 5px 10px;
+  margin: 0;
+}
+
+.next:hover, .prev:hover {
+  background-color: var(--bg-body);
+  transform: translateY(-3px);
+}
+
+.caledar-grid {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Grid de 7 columnas para los días */
+.days-container {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-top: 10px;
+}
+
+.day-name {
+  width: calc(100% / 7);
+  display: inline-block;
+  text-align: center;
+  font-weight: bold;
+  color: var(--text-light);
+  margin-bottom: 10px;
+}
+
+.day-cell {
+  height: 100px;
+  border: 1px solid #eee;
+  padding: 5px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: background-color .2s, border-color .3s;
+
+  position: relative;
+  cursor: pointer;
+  align-items: center;
+}
+
+.day-cell:hover { 
+  background-color: #f0f0f0;
+  border-color: var(--accent);
+}
+
+.day-number {
+  font-weight: bold;
+  font-size: .9rem;
+  margin-bottom: 5px;
+}
+
+.dots-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 3px;
+  width: 100%;
+}
+
+.booking-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: block;
+  transition: transform 0.2s;
+}
+
+.booking-dot:hover {
+  transform: scale(1.5);
+}
+
+/* Estilos para cada tipo de punto segun habitación */
+.dot-suite {
+  background-color: #f1c40f;
+  box-shadow: 0 0 4px rgba(241, 196, 15, 0.5);
+}
+
+.dot-superior {
+  background-color: #e67e22;
+}
+
+.dot-standard {
+  background-color: #2498db;
+}
+
+.day-cell.today {
+  background-color: #e8f6fd;
+  border: 1px solid #3498db;
+  font-weight: bold;
+}
+
+/*
+========================================================================================================================
+======================================================= COMPONENTES REUTILIZABLES ======================================
+========================================================================================================================
+*/
+
+/* BOTONES */
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+  transition: transform 0.1s, box-shadow 0.2s;
+}
+
+button:active { transform: scale(0.98); }
+
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+  border-radius: var(--radius);
+  padding: 12px 24px;
+  font-weight: bold;
+}
+
+.btn-primary:hover { background-color: #34495e; }
+
+.btn-secondary {
+  background-color: var(--danger);
+  color: white;
+  border-radius: var(--radius);
+  padding: 12px 24px;
+  font-weight: bold;
+}
+
+.btn-secondary:hover { background-color: #a15151;}
+
+.btn-hero {
+  background-color: var(--accent);
+  color: white;
+  padding: 15px 30px;
+  font-size: 1.1rem;
+  border-radius: 50px;
+  box-shadow: 0 4px 15px rgba(2122, 175, 55, 0.4);
+}
+
+.btn-hero:hover { background-color: var(--accent-hover ); }
+
+/* FORMULARIO */
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+label {
+  display: block;
+  margin-bottom: .5rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: var(--radius);
+  font-size: 1rem;
+  transition: border-color .3s;
+}
+
+.form-input:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+}
+
+/*
+========================================================================================================================
+======================================================= MODAL ==========================================================
+========================================================================================================================
+*/
+.modal-overlay {
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100dvw;
+  height: 100dvh;
+  display: grid;
+  place-content: center;
+}
+
+.modal-box {
+  min-width: 600px;
+  min-height: 300px;
+  background-color: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 1rem 2rem;
+  display: flex;
+  flex-direction: column;
+  box-shadow: var(--shadow);
+}
+
+.modal-box p {
+  flex: 1;
+}
+
+.modal-box h3 {
+  margin-bottom: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 10px;
+  justify-content: right;
+}
+
+/*
+========================================================================================================================
+======================================================= FOOTER =========================================================
+========================================================================================================================
+*/
+
+footer {
+  background-color: var(--bg-body);
+  border-top: 1px solid rgba(0, 0, 0, 0.5);
+
+  padding: 1rem 2rem;
+  margin-top: auto;
+
+  text-align: center;
+  color: var(--text-light);
+  font-size: .85rem;
+  letter-spacing: .5px;
+}
+
