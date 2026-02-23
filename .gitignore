@@ -12,3 +12,7 @@
 *.tar
 *.gz
 *.bz2
+
+# Node Modules
+node_modules/
+package-lock.json
