@@ -1,0 +1,20 @@
+{
+  "name": "ud4-caso1",
+  "version": "1.0.0",
+  "description": "Product management array system for UD4",
+  "main": "app.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [
+    "javascript",
+    "arrays",
+    "jest",
+    "vanilla"
+  ],
+  "author": "Adrian",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^29.7.0"
+  }
+}
